@@ -4,7 +4,7 @@
       <input v-model="emailValue" type="email" placeholder="Prénom" />
     </div>
     <pre>{{ errorMessage }}</pre>
-    <button>Envoi</button>
+    <button :disabled="isSubmitting">Envoi</button>
   </form>
 </template>
 
@@ -13,10 +13,13 @@ import { useField, useForm } from 'vee-validate';
 import { z } from 'zod';
 import { toFieldValidator } from '@vee-validate/zod';
 
-const { handleSubmit } = useForm();
+const { handleSubmit, isSubmitting } = useForm();
+
+const promise = new Promise((resolve) => setTimeout(() => resolve(true), 5000));
 
 const mySubmit = handleSubmit(
   async (values, { resetForm }) => {
+    await promise;
     resetForm({
       values: { email: 'exemple@gmail.com' },
       errors: { email: 'Pas valide !' },
