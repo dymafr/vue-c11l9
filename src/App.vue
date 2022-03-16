@@ -5,6 +5,7 @@
     </div>
     <pre>{{ errorMessage }}</pre>
     <button :disabled="isSubmitting">Envoi</button>
+    <pre>{{ submitCount }}</pre>
   </form>
 </template>
 
@@ -13,7 +14,7 @@ import { useField, useForm } from 'vee-validate';
 import { z } from 'zod';
 import { toFieldValidator } from '@vee-validate/zod';
 
-const { handleSubmit, isSubmitting } = useForm();
+const { handleSubmit, isSubmitting, submitCount } = useForm();
 
 const promise = new Promise((resolve) => setTimeout(() => resolve(true), 5000));
 
