@@ -20,6 +20,7 @@ const mySubmit = handleSubmit(
     resetForm({
       values: { email: 'exemple@gmail.com' },
       errors: { email: 'Pas valide !' },
+      touched: { email: false },
     });
   },
   (errors) => {
