@@ -16,7 +16,7 @@ import { toFieldValidator } from '@vee-validate/zod';
 
 const { handleSubmit, isSubmitting, submitCount } = useForm();
 
-const promise = new Promise((resolve) => setTimeout(() => resolve(true), 5000));
+const promise = new Promise((resolve) => setTimeout(() => resolve(true), 3000));
 
 const mySubmit = handleSubmit(
   async (values, { resetForm }) => {
@@ -25,7 +25,7 @@ const mySubmit = handleSubmit(
       values: { email: 'exemple@gmail.com' },
       errors: { email: 'Pas valide !' },
       touched: { email: false },
-      submitCount,
+      submitCount: submitCount.value,
     });
   },
   (errors) => {
