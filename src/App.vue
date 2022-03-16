@@ -16,10 +16,11 @@ import { toFieldValidator } from '@vee-validate/zod';
 const { handleSubmit } = useForm();
 
 const mySubmit = handleSubmit(
-  async (values, actions) => {
-    // await fetch au serveur...
-    console.log(values);
-    actions.setFieldError('email', "L'email existe déjà");
+  async (values, { resetForm }) => {
+    resetForm({
+      values: { email: 'exemple@gmail.com' },
+      errors: { email: 'Pas valide !' },
+    });
   },
   (errors) => {
     console.log(errors);
