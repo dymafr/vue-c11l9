@@ -21,11 +21,11 @@ const promise = new Promise((resolve) => setTimeout(() => resolve(true), 5000));
 const mySubmit = handleSubmit(
   async (values, { resetForm }) => {
     await promise;
-    resetForm({
-      values: { email: 'exemple@gmail.com' },
-      errors: { email: 'Pas valide !' },
-      touched: { email: false },
-    });
+    // resetForm({
+    //   values: { email: 'exemple@gmail.com' },
+    //   errors: { email: 'Pas valide !' },
+    //   touched: { email: false },
+    // });
   },
   (errors) => {
     console.log(errors);
